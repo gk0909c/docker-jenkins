@@ -1,0 +1,4 @@
+git
+jacoco
+git-client
+scm-api
