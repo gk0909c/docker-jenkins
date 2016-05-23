@@ -76,5 +76,8 @@ cat $PLUGINS_TXT | while read LINE;do
 done
 
 # run jenkins
-java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 -jar /usr/share/jenkins/jenkins.war
+java -Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8 \
+    -Dhudson.model.DirectoryBrowserSupport.CSP="default-src 'none'; \
+        img-src 'self'; style-src 'self' 'unsafe-inline'; child-src 'self'; frame-src 'self';" \
+    -jar /usr/share/jenkins/jenkins.war
 
