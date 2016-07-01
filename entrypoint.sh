@@ -1,5 +1,8 @@
 #! /bin/bash
 
+TOMCAT_XMX=${TOMCAT_XMX:-128M}
+TOMCAT_XMS=${TOMCAT_XMS:-64M}
+
 # maven proxy
 if [ ! -f $JENKINS_HOME/proxy.xml ]; then
   /opt/set_maven_proxy.sh
@@ -14,7 +17,7 @@ cat > $CATALINA_HOME/conf/tomcat-users.xml <<-EOC
 EOC
 
 # run tomcat
-export CATALINA_OPTS="-server -Xmx128M -Xms64M -Xss256k -Djava.awt.headless=true"
+export CATALINA_OPTS="-server -Xmx${TOMCAT_XMX} -Xms${TOMCAT_XMS} -Xss256k -Djava.awt.headless=true"
 $CATALINA_HOME/bin/catalina.sh start
 tail -f $CATALINA_HOME/logs/catalina.out
 

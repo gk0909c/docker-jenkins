@@ -33,9 +33,12 @@ docker exec jenkins /opt/set_maven_proxy.sh
 ## tomcat admin user
 admin/password
 
-## environment variables
+## environment variables(const)
 + JAVA_HOME: /usr/local/jdk1.8.0_92
 + MAVEN_HOME: /usr/local/apache-maven-3.3.9
 + CATALINA_HOME: /usr/local/apache-tomcat-8.0.36
 + JENKINS_HOME: /var/jenkins_home
-+ CATALINA_OPTS: "-server -Xmx128M -Xms64M -Xss256k -Djava.awt.headless=true"
+
+## environment variables(you can specify at run -e param)
++ TOMCAT_XMX: 128M (Default)
++ TOMCAT_XMS: 64M (Default)
