@@ -2,7 +2,7 @@
 jenkins ci server
 
 ## include ##
-+ jdk8 (u92)
++ openjdk8
 + maven3.3.9
 + tomcat8.0.36
 + jenkins2.11
@@ -25,7 +25,7 @@ docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
 To set maven proxy, this should be executed after jenkins proxy setting.  
-(This read info from $JENKINS_HOME/proxy.xml)
+(This read proxy info from $JENKINS_HOME/proxy.xml)
 ```
 docker exec jenkins /opt/set_maven_proxy.sh
 ```
@@ -34,9 +34,9 @@ docker exec jenkins /opt/set_maven_proxy.sh
 admin/password
 
 ## environment variables(const)
-+ JAVA_HOME: /usr/local/jdk1.8.0_92
-+ MAVEN_HOME: /usr/local/apache-maven-3.3.9
-+ CATALINA_HOME: /usr/local/apache-tomcat-8.0.36
++ JAVA_HOME: /usr/lib/jvm/java-8-openjdk-amd64
++ MAVEN_HOME: /usr/local/apache-maven-3.5.0
++ CATALINA_HOME: /usr/local/apache-tomcat-8.5.15
 + JENKINS_HOME: /var/jenkins_home
 
 ## environment variables(you can specify at run -e param)

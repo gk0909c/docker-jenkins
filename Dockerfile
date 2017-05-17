@@ -1,35 +1,34 @@
 FROM gk0909c/ubuntu
 MAINTAINER gk0909c@gmail.com
 
+# software
+RUN apt-get update && apt-get install -y libxml2-utils fonts-vlgothic
+
 # install JDK
-RUN wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.tar.gz && \
-    tar zxf jdk-8u92-linux-x64.tar.gz && \
-    mv jdk1.8.0_92 /usr/local/ && \
-    rm jdk-8u92-linux-x64.tar.gz
-ENV JAVA_HOME /usr/local/jdk1.8.0_92
+RUN apt-get install -y openjdk-8-jdk
 
 # install maven
-RUN wget http://apache.cs.utah.edu/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz && \
-    tar -zxf apache-maven-3.3.9-bin.tar.gz && \
-    mv apache-maven-3.3.9 /usr/local && \
-    rm apache-maven-3.3.9-bin.tar.gz
-ENV MAVEN_HOME /usr/local/apache-maven-3.3.9
+RUN wget http://apache.cs.utah.edu/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz && \
+    tar -zxf apache-maven-3.5.0-bin.tar.gz && \
+    mv apache-maven-3.5.0 /usr/local && \
+    rm apache-maven-3.5.0-bin.tar.gz
 
 # install tomcat
-RUN wget http://ftp.riken.jp/net/apache/tomcat/tomcat-8/v8.0.36/bin/apache-tomcat-8.0.36.tar.gz && \
-    tar zxf apache-tomcat-8.0.36.tar.gz && \
-    mv apache-tomcat-8.0.36 /usr/local/ && \
-    rm apache-tomcat-8.0.36.tar.gz
-ENV CATALINA_HOME /usr/local/apache-tomcat-8.0.36
+RUN wget http://ftp.riken.jp/net/apache/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
+    tar zxf apache-tomcat-8.5.15.tar.gz && \
+    mv apache-tomcat-8.5.15 /usr/local/ && \
+    rm apache-tomcat-8.5.15.tar.gz
+
+# constant env
+ENV JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" \
+    MAVEN_HOME="/usr/local/apache-maven-3.5.0" \
+    CATALINA_HOME="/usr/local/apache-tomcat-8.5.15" \
+    JENKINS_HOME="/var/jenkins_home"
 
 # install jenkins
-RUN wget http://mirrors.jenkins-ci.org/war/2.11/jenkins.war && \
+RUN wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war && \
     mv jenkins.war ${CATALINA_HOME}/webapps/
-ENV JENKINS_HOME /var/jenkins_home
 RUN mkdir ${JENKINS_HOME}
-
-# other software
-RUN apt-get update && apt-get install -y git libxml2-utils fonts-vlgothic
 
 # set font
 RUN mkdir -p $JAVA_HOME/jre/lib/fonts/fallback/ && \
