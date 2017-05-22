@@ -1,11 +1,11 @@
 # docker jenkins #
-jenkins ci server
+jenkins with maven
 
 ## include ##
 + openjdk8
-+ maven3.3.9
-+ tomcat8.0.36
-+ jenkins2.11
++ maven3.5.0
++ tomcat8.5.15
++ jenkins latest
 
 ## usage ##
 To run,
