@@ -40,5 +40,5 @@ admin/password
 + JENKINS_HOME: /var/jenkins_home
 
 ## environment variables(you can specify at run -e param)
-+ TOMCAT_XMX: 128M (Default)
-+ TOMCAT_XMS: 64M (Default)
++ TOMCAT_XMX: 512M (Default)
++ TOMCAT_XMS: 256M (Default)

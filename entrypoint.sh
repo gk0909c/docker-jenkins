@@ -1,7 +1,7 @@
 #! /bin/bash
 
-TOMCAT_XMX=${TOMCAT_XMX:-128M}
-TOMCAT_XMS=${TOMCAT_XMS:-64M}
+TOMCAT_XMX=${TOMCAT_XMX:-512M}
+TOMCAT_XMS=${TOMCAT_XMS:-256M}
 
 # maven proxy
 if [ ! -f $JENKINS_HOME/proxy.xml ]; then
