@@ -2,7 +2,7 @@ FROM gk0909c/ubuntu
 MAINTAINER gk0909c@gmail.com
 
 # software
-RUN apt-get update && apt-get install -y libxml2-utils fonts-vlgothic
+RUN apt-get update && apt-get install -y libxml2-utils fonts-vlgothic libltdl-dev
 
 # install JDK
 RUN apt-get install -y openjdk-8-jdk
