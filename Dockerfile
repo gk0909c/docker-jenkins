@@ -8,13 +8,13 @@ RUN apt-get update && apt-get install -y libxml2-utils fonts-vlgothic libltdl-de
 RUN apt-get install -y openjdk-8-jdk
 
 # install maven
-RUN wget http://apache.cs.utah.edu/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz && \
+RUN wget https://archive.apache.org/dist/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz && \
     tar -zxf apache-maven-3.5.0-bin.tar.gz && \
     mv apache-maven-3.5.0 /usr/local && \
     rm apache-maven-3.5.0-bin.tar.gz
 
 # install tomcat
-RUN wget http://ftp.riken.jp/net/apache/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.15/bin/apache-tomcat-8.5.15.tar.gz && \
     tar zxf apache-tomcat-8.5.15.tar.gz && \
     mv apache-tomcat-8.5.15 /usr/local/ && \
     rm apache-tomcat-8.5.15.tar.gz
