@@ -26,7 +26,7 @@ ENV JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" \
     JENKINS_HOME="/var/jenkins_home"
 
 # install jenkins
-RUN wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war && \
+RUN wget http://mirrors.jenkins-ci.org/war-stable/2.73.2/jenkins.war && \
     mv jenkins.war ${CATALINA_HOME}/webapps/
 RUN mkdir ${JENKINS_HOME}
 
