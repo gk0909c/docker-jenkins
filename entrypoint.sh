@@ -2,6 +2,7 @@
 
 TOMCAT_XMX=${TOMCAT_XMX:-512M}
 TOMCAT_XMS=${TOMCAT_XMS:-256M}
+TOMCAT_ENCODING=${TOMCAT_ENCODING:-UTF-8}
 
 # maven proxy
 if [ ! -f $JENKINS_HOME/proxy.xml ]; then
@@ -17,7 +18,7 @@ cat > $CATALINA_HOME/conf/tomcat-users.xml <<-EOC
 EOC
 
 # run tomcat
-export CATALINA_OPTS="-server -Xmx${TOMCAT_XMX} -Xms${TOMCAT_XMS} -Xss256k -Djava.awt.headless=true"
+export CATALINA_OPTS="-server -Xmx${TOMCAT_XMX} -Xms${TOMCAT_XMS} -Xss256k -Djava.awt.headless=true -Dfile.encoding=${TOMCAT_ENCODING} -Dsun.jnu.encoding=${TOMCAT_ENCODING}"
 $CATALINA_HOME/bin/catalina.sh start
 tail -f $CATALINA_HOME/logs/catalina.out
 

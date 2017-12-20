@@ -5,7 +5,7 @@ jenkins with maven
 + openjdk8
 + maven3.5.0
 + tomcat8.5.15
-+ jenkins latest
++ jenkins 2.89.2
 
 ## usage ##
 To run,
@@ -42,3 +42,4 @@ admin/password
 ## environment variables(you can specify at run -e param)
 + TOMCAT_XMX: 512M (Default)
 + TOMCAT_XMS: 256M (Default)
++ TOMCAT_ENCODING: UTF-8 (Default)
